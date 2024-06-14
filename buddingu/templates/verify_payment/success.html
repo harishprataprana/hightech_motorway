@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block title %}Payment Successful{% endblock %}
+{% load static %}
+{% block content %}
+{% load course_tags %}
+
+    <!-- SHOP ORDER COMPLETED
+    ================================================== -->
+    <div class="container py-8 py-lg-11">
+        <div class="row">
+            <div class="col-xl-8 mx-xl-auto">
+                <img src="{% static 'assets/img/success.png'%}" width="20%" height="20%" class="img-fluid mx-auto d-block">
+                <header class="entry-header mt-4">
+                    <h1 class="entry-title text-center">Order received</h1>
+                    <p class="text-center">Thank you. Your order has been received.</p>
+                </header>
+                <table class="table border border-secondary p-4">
+                    <thead>
+                        <tr>
+                            <td scope="col">Order ID:</td>
+                            <td scope="col">Date & Time:</td>
+                            <td scope="col">Amount Received:</td>
+                            <td scope="col">Payment Method:</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="col"><strong>{{payment.order_id}}</strong></td>
+                            <td scope="col"><strong>{{payment.date}}</strong></td>
+                            <td scope="col"><strong>₹ {% discount_calculation payment.course.price payment.course.discount %}</strong></td>
+                            <td scope="col"><strong>Online Payment</strong></td>
+                        </tr>
+                    </tbody>
+                    <br>
+                </table>
+                <br>
+                <div class="row p-4 border border-dark">
+                    <h2>Order details</h2>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td scope="row">{{payment.course.title}}</td>
+                            <td>₹ {{payment.course.price}}</td>
+                        </tr>
+
+                        <tr>
+                            <td scope="row">Course Discount</td>
+                            <td>{{payment.course.discount}}%</td>
+                        </tr>
+
+                        <tr>
+                            <td scope="row">Coupon Discount</td>
+                            <td>NA</td>
+                        </tr>
+
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th scope="row">Subtotal</th>
+                            <td>₹ {% discount_calculation payment.course.price payment.course.discount %}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Payment Method</th>
+                            <td>Online Payment</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Total:</th>
+                            <td>₹ {% discount_calculation payment.course.price payment.course.discount %}</td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <br>
+                <div class="text-center">
+                    <a href="{% url 'home' %}" class="btn btn-gigas btn-x-wide rounded-lg lift">Download Receipt</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

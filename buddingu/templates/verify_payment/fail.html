@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Payment Failed{% endblock %}
+{% block content %}
+{% load static %}
+
+    <div class="container py-8 py-lg-11">
+        <div class="row">
+            <i class="fa fa-close text-center" aria-hidden="true" style="font-size:100px; color:red;"></i>
+        </div>
+        <div class="row">
+            <h1 class="entry-title text-center">Order Payment Failed !</h1>
+        </div>
+        <div class="row">
+            <p class="text-center">It seems that your payment was failed, please try again.</p>
+        </div>
+        <br>
+        <div class="row col-xl-2 mx-xl-auto">
+                <a href="{% url 'home' %}" class="btn btn-primary rounded-lg">Back to Home</a>
+        </div>
+    </div>
+
+{% endblock %}

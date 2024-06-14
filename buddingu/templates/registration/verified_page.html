@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+{% block title %}Verified Email{% endblock %}
+{% block content %}
+<br>
+<br>
+<div class="container mt-4">
+    <div class="col-sm-6">
+        <h2 class="display-4">Congratulations, you account is now verified..!!</h2>
+        <p>I have mailed you the link to verify your email.</p>
+        <p>Please open your email inbox and click on 'Verify Now' button to complete the registration process.</p>
+        <br>
+        <p>OR</p>
+        <br>
+        <a href={login}>
+            <div class="btn btn-block btn-primary" type="submit">
+                        LOGIN NOW
+            </div>
+        </a>
+
+    </div>
+</div>
+<br>
+<br>
+{% endblock %}
